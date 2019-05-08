@@ -2,15 +2,15 @@
 
 推荐书籍地址：https://github.com/ruyuejun/polaris  
 
-所有知识笔记汇总仓库：https://github.com/overcomputer   
+所有知识笔记汇总仓库：https://github.com/overcode   
 
 各类技术分类索引：  
-- JavaScript：https://github.com/overcomputer/JavaScript
-- Go：https://github.com/overcomputer/Golang
+- JavaScript：https://github.com/overcode/JavaScript
+- Go：https://github.com/overcode/Golang
 - Java：整理中
 - Python：整理中
-- Server:服务端相关技术，如数据库，web服务器等 https://github.com/overcomputer/Server
-- 算法：https://github.com/overcomputer/Algorithm
+- Server:服务端相关技术，如数据库，web服务器等 https://github.com/overcode/Server
+- 算法：https://github.com/overcode/Algorithm
 
 ## 笔记说明 
 
