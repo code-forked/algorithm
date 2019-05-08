@@ -71,3 +71,6 @@ trunk/.idea/
 
 # production file
 dist/
+
+# vs file
+.vscode/
