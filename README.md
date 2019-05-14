@@ -10,12 +10,12 @@
 零基础
         《数据结构》(邓俊辉)                            - C++经典数据结构书籍
         《大话数据结构》                                - 适合数据结构零基础入门 
-        《算法图解》                                    - 适合大多数人算法零基础入门
+        《算法图解》《啊哈，算法》                        - 适合大多数人算法零基础入门
         《学习JavaScript数据结构与算法》                 - 适合JS程序员零基础入门     
 
 初级
         《算法设计与分析基础》                           - Java版详细算法思路的总结
-        《数据结构与算法分析》                           - 拥有各类语言版，推荐C，C++，Java三种版本
+        《数据结构与算法分析》                           - 拥有各类语言版
         《算法新解》
 
 进阶
@@ -30,7 +30,14 @@
         《剑指offer》
 ```
 
-## 其他资料汇总
+## 算法相关资料汇总
+
+- 力扣：https://leetcode.com/ 
+- 麻省理工学院公开课：算法导论：http://open.163.com/special/opencourse/algorithms.html
+- JULY博主：https://blog.csdn.net/v_july_v  
+- oRblt专栏：https://blog.csdn.net/orbit  
+
+## 博主笔记与资料汇总
 
 推荐书籍地址：https://github.com/ruyuejun/polaris  
 
