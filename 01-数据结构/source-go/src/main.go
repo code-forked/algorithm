@@ -6,19 +6,13 @@ import (
 )
 
 func main() {
+	sl := list.NewStaticList(5)
+	fmt.Println(sl)
 
 	ll := list.NewLinkedList()
-	ll.Push(11)
-	fmt.Println(ll.Head.Next.Data)
-	fmt.Println(ll.Length)
-
-	ll.Push(22)
-	fmt.Println(ll.Head.Next.Next.Data)
-	fmt.Println(ll.Length)
-
-	fmt.Println(ll.Insert(2, 66))
-	fmt.Println(ll.Head.Next.Next.Data)
-	fmt.Println(ll.Length)
-
-	fmt.Println(ll.GetOneNode(2))
+	ll.Push(1)
+	ll.Push(2)
+	for i := 0; i < ll.Length; i++ {
+		fmt.Println(ll.GetOneNode(i))
+	}
 }
