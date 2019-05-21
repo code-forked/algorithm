@@ -1,8 +1,8 @@
 ## 笔记说明 
 
-笔记中基本涉及的代码基本都以Go言为主，且附带JS的实现版本与对应说明。
+由于`Go`语言语法相对简单，笔记中伪代码都以Go版本为演示，读者不具备Go语言基础也能看懂代码。    
 
-当然由于Go语言本身的简洁性，本笔记无需预先学习Go语言相关语法，拥有基本的C系语言都能轻松阅读。
+[source](https://github.com/overnote/Algorithm/tree/master/sources)文件夹下拥有各类语言版本的实现案例，未来会不断涵盖Java，JavaScript，TypeScript，C，C++等各个版本。  
 
 ## 算法资料
 
