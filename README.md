@@ -1,6 +1,8 @@
 ## 笔记说明 
 
-由于`Go`语言语法相对简单，笔记中伪代码都以Go版本为演示，读者不具备Go语言基础也能看懂代码。    
+由于`Go`语言语法相对简单，笔记中伪代码都以Go版本为演示，读者不具备Go语言基础也能看懂代码。  
+
+当然，笔者也提供了`Go`语言的部分语法贴士：[go语法简单解释100行](https://github.com/overnote/Algorithm/blob/master/00-%E6%A6%82%E8%BF%B0/03-Go%E4%BC%AA%E4%BB%A3%E7%A0%81%E7%9A%84%E8%AF%B4%E6%98%8E.md)    
 
 [source](https://github.com/overnote/Algorithm/tree/master/sources)文件夹下拥有各类语言版本的实现案例，未来会不断涵盖Java，JavaScript，TypeScript，C，C++等各个版本。  
 
