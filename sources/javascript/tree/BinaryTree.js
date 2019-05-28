@@ -1,29 +1,3 @@
-## 一 树的简介
-
-线性表中具体的单个元素之间的关系是一对一的线性结构。现实中，仍然有很多一对多的情况。
-
-树是一种非线性数据结构，以分层的方式存储数据，经常用来存储具有层级关系的数据。  
-
-树的实际案例：文件系统中不同层级的文件，公司的行政架构图
-
-树的相关术语：
-```
-根节点：树上最上面的节点
-父节点：下方连接多个节点
-子节点：父节点下的节点
-叶节点：没有子节点
-路径：沿着一组特定的一边，从一个节点可以到达到与他不相邻的节点，称之为路径
-遍历：以某种特定的顺序访问树中所有的节点
-深度：如上图中，CEO在0层，依次往下有1层，2层...层数即是深度
-键：每个节点都有一个与之相关的值，该值称之为键
-左右节点：一个节点下延伸的子节点，左节点包含一组特定的值，右节点包含一组特定的值
-```
-二叉树是一种特殊的树，它的子节点不超过两个。通过将子节点的个数限制为2，可以写出高效的程序在树中插入、查找、删除数据。  
-在二叉树中，相对较小的值保存在左节点，相对较大的值保存在右节点。
-![](/images/Algorithm/js-09.png)
-## 二 实现二叉树
-二叉树由节点组成，所以需要一个节点对象Node。
-```javascript
 //二叉树的节点对象:用来保存数据，以及和其他节点的链接
 function Node(data, left, right) {
     this.data = data;
@@ -174,41 +148,3 @@ BST.prototype = {
         }
     }
 }
-```
-测试添加与遍历：
-```javascript
-var nums = new BST();
-nums.insert(23);
-nums.insert(45);
-nums.insert(16);
-nums.insert(37);
-nums.insert(3);
-nums.insert(99);
-nums.insert(22);
-nums.inOrder(nums.root);
-nums.preOrder(nums.root);
-nums.postOrder(nums.root);
-console.log(nums.getMin());
-console.log(nums.getMax());
-console.log(nums.find(45));
-```
-此时的图形结构：
-![](/images/Algorithm/js-10.png)
-测试删除：
-```javascript
-var nums = new BST();
-nums.insert(23);
-nums.insert(45);
-nums.insert(16);
-nums.insert(37);
-nums.insert(3);
-nums.insert(99);
-nums.insert(22);
-console.log(nums.getMin());  //右树最小值
-nums.remove(16);
-console.log(nums);
-console.log(nums.root.left);
-console.log(nums.root.right);
-```
-此时的图形结构
-![](/images/Algorithm/js-11.png)
