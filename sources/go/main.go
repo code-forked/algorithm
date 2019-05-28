@@ -4,13 +4,16 @@ import (
 	"fmt"
 )
 
-func Fbi(i int) int {
-	if i == 0 || i == 1 {
-		return i
-	}
-	return Fbi(i-1) + Fbi(i-2)
-}
 
 func main() {
-	fmt.Println(Fbi(10))
+	// sl := list.NewSequenList(10)
+	// sl.Show()
+	// sl.Append(15)
+	// sl.Append(17)
+	// sl.Append(19)
+	// sl.Show() 
+
+	s1 := []int {1,2,3,4,5}
+	// s2 := []int {6,7,8,9,10}
+	s2 := append(s1[0:2],s1[0:3])
 }
