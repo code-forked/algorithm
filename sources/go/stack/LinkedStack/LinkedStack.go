@@ -2,7 +2,7 @@
  * 栈:链栈
  */
 
-package stack
+package LinkedStack
 
 type Node struct {
 	data interface{}

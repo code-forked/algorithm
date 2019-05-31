@@ -2,7 +2,7 @@
  * 顺序表
  */
 
-package list
+package SequenList
 
 import (
 	"errors"
@@ -17,7 +17,7 @@ type SequenList struct {
 }
 
 // 创建线性表实例    按笔者认为这里应该传入一个泛型数组，通过泛型数组来更高抽象顺序表	
-func NewSequenList() *SequenList {
+func New() *SequenList {
 	
 	var arr [10]int
 
