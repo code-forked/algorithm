@@ -2,7 +2,7 @@
  * 栈:顺序结构
  */
 
-package stack
+package SequenStack
 
 type SeqStack struct {
 	Data   []interface{} // 线性表内数据

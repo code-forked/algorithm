@@ -1,28 +1,49 @@
 package main
 
 import (
-	"algorithm/list"
+	"algorithm/array"
+	"algorithm/list/SequenList"
 	"fmt"
 )
 
+func testSparseArray() {
+
+	var primitArray [11][11]int
+	primitArray[1][2] = 1
+	primitArray[2][3] = 2
+	array.ShowOrigin(primitArray)
+
+	s := array.NewSparseArray(primitArray)
+	array.ShowSparse(s)
+
+	arr := array.TransToArray(s)
+	array.ShowOrigin(arr)
+}
+
+func testSequenList() {
+
+	sl := SequenList.New()
+	sl.Show()
+
+	sl.Append(7)
+	sl.Append(9)
+	sl.Show()
+
+	sl.Insert(1,6)
+	sl.Show()
+
+	sl.Pop()
+	sl.Show()
+
+}
 
 func main() {
 
-	al := list.NewArrayList()
-	al.Show()
+	fmt.Println("start run...")
 
-	al.Append(10)
-	al.Append(12)
-	al.Show()
+	testSparseArray()				// 测试稀疏数组
 
-	err := al.Insert(1,15)
-	fmt.Println(err)
-	al.Show()
-
-	err = al.Insert(2,13)
-	fmt.Println(err)
-	al.Show()
-	fmt.Println(al.Length())
+	testSequenList()				// 测试顺序表	
 
 
 
