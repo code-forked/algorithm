@@ -9,18 +9,18 @@
 	 "fmt"
  )
  
- // 节点对象，存储单链表上某个节点数据
+ // 节点对象，存储循环链表上某个节点数据
  type node struct {
 	 data interface{}			// 数据域
 	 next *node					// 指针域
  }
  
- // 单链表对象：存储头节点即可
+ // 循环链表对象：存储头节点即可
  type RingList struct {
 	 head *node					
  }
  
- // 创建单链表
+ // 创建循环链表
  func New() *RingList {
 	 head := &node{0, nil}		// 头节点存储链表中元素的个数
 	 return &RingList{
