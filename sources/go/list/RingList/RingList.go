@@ -132,18 +132,6 @@
 	 return currentNode.data, nil
  }
  
- // 清空链表
- func (ll *RingList) Clear() {
-	 currentNode := ll.head.next
-	 for currentNode != nil {
-		 temp := currentNode.next
-		 currentNode = nil
-		 currentNode = temp
-	 }
-	 ll.head.data = 0
-	 ll.head.next = nil
- }
- 
  // 打印链表
  func (ll *RingList) Show() {
 	 var len int = 0

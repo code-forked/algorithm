@@ -4,6 +4,7 @@ import (
 	"algorithm/array"
 	SequenList "algorithm/list/SequenList"
 	LinkedList "algorithm/list/LinkedList"
+	DoublyList "algorithm/list/DoublyList"
 	"fmt"
 )
 
@@ -57,6 +58,16 @@ func testLinkedList() {
 	fmt.Println(ll.Node(1))
 }
 
+func testDoublyList() {
+
+	dl := DoublyList.New()
+	dl.Show()
+
+	dl.Append(7)
+	dl.Show()
+
+}
+
 func main() {
 
 	fmt.Println("start run...")
@@ -65,6 +76,8 @@ func main() {
 
 	// testSequenList()					// 测试顺序表	
 
-	testLinkedList()					// 测试单链表
+	// testLinkedList()					// 测试单链表
+
+	testDoublyList()						// 测试双向链表
 
 }
