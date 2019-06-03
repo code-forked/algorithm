@@ -2,7 +2,8 @@ package main
 
 import (
 	"algorithm/array"
-	"algorithm/list/SequenList"
+	SequenList "algorithm/list/SequenList"
+	LinkedList "algorithm/list/LinkedList"
 	"fmt"
 )
 
@@ -37,14 +38,33 @@ func testSequenList() {
 
 }
 
+func testLinkedList() {
+
+	ll := LinkedList.New()
+	ll.Show()
+
+	ll.Append(9)
+	ll.Append(5)
+	ll.Show()
+
+	ll.Insert(1,7)
+	ll.Insert(3,4)
+	ll.Show()
+
+	ll.Delete(3)
+	ll.Show()
+	
+	fmt.Println(ll.Node(1))
+}
+
 func main() {
 
 	fmt.Println("start run...")
 
-	testSparseArray()				// 测试稀疏数组
+	// testSparseArray()				// 测试稀疏数组
 
-	testSequenList()				// 测试顺序表	
+	// testSequenList()					// 测试顺序表	
 
-
+	testLinkedList()					// 测试单链表
 
 }

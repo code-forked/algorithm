@@ -4,26 +4,27 @@
 
 package list
 
-import "errors"
+import (
+	"errors"
+	"fmt"
+)
 
-// 先设计一个结点对象，存储单链表上某个节点数据
+// 节点对象，存储单链表上某个节点数据
 type node struct {
 	data interface{}			// 数据域
 	next *node					// 指针域
 }
 
-// 单链表对象
+// 单链表对象：存储头节点即可，当然也有做法是直接将头结点视为单链表对象
 type LinkedList struct {
-	head *node					// 单链表头，有了头节点，就能找到所有结点
-	length int					// 当前链表中数据元素数量
+	head *node					
 }
 
 // 创建单链表
 func New() *LinkedList {
-	head := &node{0, nil}
+	head := &node{0, nil}		// 头节点存储链表中元素的个数
 	return &LinkedList{
 		head,
-		0,
 	}
 }
 
@@ -36,76 +37,124 @@ func (ll *LinkedList)IsEmpty() bool {
 func (ll *LinkedList) Append(data interface{}){
 
 	insertNode := &node{data, nil}					// 要插入的节点
+	var len int = 0
+	len = ll.head.data.(int)
 
 	// 查询最后一个节点
 	lastNode := ll.head.next
 	if lastNode == nil {							// 第一次添加
 		ll.head.next = insertNode
-		ll.length ++
+		len ++
+		ll.head.data = len
 		return
 	}
+
 	for lastNode.next != nil {						// 不是第一次添加
 		lastNode = lastNode.next
 	}
 	lastNode.next = insertNode
-	ll.length ++
+	len ++
+	ll.head.data = len
+
 	return
 }
 
 // 增加：任意位置插入结点
 func (ll *LinkedList) Insert(index int, data interface{}) error{
 
-	if index < 0 || index > ll.length {
+	var len int = 0
+	len = ll.head.data.(int)
+
+	if index < 1 || index > len {
 		return errors.New("index overflow")
 	}
 
-	currentNode := ll.head
-	for i := 0; i < index; i++ {
-		currentNode = currentNode.next		// 找到要插入的位置
+	beforeNode := ll.head
+	appendNode := &node{data, nil}
+
+	for i := 0; i < index - 1; i++ {
+		beforeNode = beforeNode.next		// 找到要插入的位置的前置元素
 	}
-	appendNode := &node{Data:o, Next:nil}
-	appendNode.Next = currentNode.Next
-	currentNode.Next = appendNode
-	ll.Length ++
-	return true, nil
+
+	appendNode.next = beforeNode.next
+	beforeNode.next = appendNode
+
+	len ++
+	ll.head.data = len
+
+	return nil
 
 }
 
 // 删除：删除指定位置结点
-func (ll *LinkedList) Delete(index int) (bool, error) {
-	if index < 0 || index >= ll.Length {
-		return false, errors.New("指定索引位置有误")
+func (ll *LinkedList) Delete(index int) (interface{}, error) {
+
+	var len int = 0
+	len = ll.head.data.(int)
+
+	if index < 0 || index >= len {
+		return nil,errors.New("index overflow")
 	}
-	currentNode := ll.Head
+
+	currentNode := ll.head
 	var beforeNode *node
-	for i := 0; i <= index; i++ {
-		beforeNode, currentNode = currentNode,  currentNode.Next
+	var delData interface{}					// 被删除的数据
+
+	for i := 0; i < index; i++ {
+		beforeNode = currentNode
+		currentNode = currentNode.next
 	}
-	beforeNode.Next = currentNode.Next
+
+	beforeNode.next = currentNode.next
 	currentNode = nil
-	ll.Length --
-	return true, nil
+
+	len--
+	ll.head.data = len
+
+	return delData, nil
 }
 
 // 查询： 获取指定位置结点
-func (ll *LinkedList) GetOneNode(index int) (*node, error) {
-	if index < 0 || index >= ll.Length {
-		return nil, errors.New("索引越界")
+func (ll *LinkedList) Node(index int) (interface{}, error) {
+
+	var len int = 0
+	len = ll.head.data.(int)
+
+	if index < 0 || index >= len {
+		return nil, errors.New("index overflow")
 	}
-	currentNode := ll.Head
-	for i := 0; i <= index; i++ {
-		currentNode = currentNode.Next
+	currentNode := ll.head
+	for i := 0; i < index; i++ {
+		currentNode = currentNode.next
 	}
-	return currentNode, nil
+	return currentNode.data, nil
 }
 
 // 清空链表
 func (ll *LinkedList) Clear() {
-	currentNode := ll.Head.Next
+	currentNode := ll.head.next
 	for currentNode != nil {
-		temp := currentNode.Next
+		temp := currentNode.next
 		currentNode = nil
 		currentNode = temp
 	}
-	ll.Head.Next = nil
+	ll.head.data = 0
+	ll.head.next = nil
+}
+
+// 打印链表
+func (ll *LinkedList) Show() {
+	var len int = 0
+	len = ll.head.data.(int)
+	currentNode := ll.head
+	for i := 0; i <= len; i++ {
+		fmt.Print(currentNode.data)
+		if i == len {
+			fmt.Print(" \n")
+		} else {
+			fmt.Print(" ")
+		}
+
+		currentNode = currentNode.next
+	}
 }
