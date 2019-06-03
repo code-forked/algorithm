@@ -10,111 +10,128 @@ import (
 	"os"
 )
 
-// 结点结构体
-type component struct {
-	Data interface{}
-	Cur  int // 游标：为0时表示无指向
+// 节点结构体
+type node struct {
+	data interface{}
+	cur  int 				// 游标：为0时表示无指向
 }
 
 // 静态链表
 type StaticList struct {
-	Arr     []component
-	MaxSize int
-	Length  int
+	data     []node
+	size int
+	length  int
 }
 
-func NewStaticList(size int) *StaticList {
+func New(size int) (*StaticList, error){
 
 	if size < 3 {
-		fmt.Println("参数错误")
-		return nil
+		return nil, errors.New("size overflow")
 	}
 
-	list := make([]component, size)
+	s := make([]node, size)
 
-	for i := 0; i < size-1; i++ {
-		list[i].Cur = i + 1
+	for i := 0; i <= size-1; i++ {
+		s[i].cur = i + 1
+		if i == size - 1 {
+			s[size-1].cur = 0 
+		}
 	}
-	list[size-2].Cur = 0
-	list[size-1].Cur = 0 // 初始化时，静态链表为空，最后一个元素cur为0
-	return &StaticList{list, size, 0}
+
+	return &StaticList{s, size, 0},nil 
 }
 
 // 判断是否为空
 func (sl *StaticList) IsEmpty() bool {
-	if sl.Length == 0 {
+	if sl.length == 0 {
 		return true
 	}
 	return false
 }
 
-// 分配结点
+// 分配节点
 func (sl *StaticList) malloc() int {
-	i := sl.Arr[0].Cur
+	i := sl.data[0].cur
 	if i == 0 {
 		os.Exit(0)
 	}
-	sl.Arr[0].Cur = sl.Arr[i].Cur
+	sl.data[0].cur = sl.data[i].cur
 	return i
 }
 
-// 回收结点
+// 回收节点
 func (sl *StaticList) free(index int) {
-	sl.Arr[index].Cur = sl.Arr[0].Cur
-	sl.Arr[0].Cur = index
+	sl.data[index].cur = sl.data[0].cur
+	sl.data[0].cur = index
 }
 
 // 回收链表到备用链表
 func (sl *StaticList) DestroyList() {
-	if sl.Arr[sl.MaxSize-1].Cur == 0 {
+
+	j := sl.data[sl.size-1].cur
+
+	if j == 0 {
 		return
 	}
-	j := sl.Arr[sl.MaxSize-1].Cur
-	sl.Arr[sl.MaxSize-1].Cur = 0
-	i := sl.Arr[0].Cur
-	sl.Arr[0].Cur = j
+
+	sl.data[sl.size-1].cur = 0
+
+	i := sl.data[0].cur
+	sl.data[0].cur = j
 	if j > 0 {
-		j = sl.Arr[j].Cur
+		j = sl.data[j].cur
 	}
-	sl.Arr[j].Cur = i
+	sl.data[j].cur = i
 }
 
 // 插入节点
-func (sl *StaticList) Insert(data interface{}, index int) (bool, error) {
-	if index < 1 || index > sl.Length {
-		return false, errors.New("插入索引不合法")
+func (sl *StaticList) Insert(data interface{}, index int) error{
+
+	if index < 1 || index > sl.length {
+		return errors.New("index overflow")
 	}
-	i := sl.Arr[sl.MaxSize-1].Cur
+
+	i := sl.data[sl.size-1].cur
 	j := 1
 	for i > 0 && j < index-1 {
 		j++
-		i = sl.Arr[i].Cur
+		i = sl.data[i].cur
 	}
-	tmp := sl.Arr[i].Cur
+	tmp := sl.data[i].cur
 	cur := sl.malloc()
-	sl.Arr[cur].Data = data
-	sl.Arr[cur].Cur = tmp
-	sl.Arr[i].Cur = cur
-	return true, nil
+	sl.data[cur].data = data
+	sl.data[cur].cur = tmp
+	sl.data[i].cur = cur
+	return nil
 }
 
 // 显示链表结构
-func (sl *StaticList) Traverse() {
-	for i, v := range sl.Arr {
-		fmt.Printf("%5d:%5d,%5s", i, v.Cur, v.Data)
+func (sl *StaticList) Show() {
+	for i, v := range sl.data {
+		fmt.Printf("%5d:%5d,%5s", i, v.cur, v.data)
 	}
 }
 
 // 获取数据元素位置
-func (sl *StaticList) GetLocation(data interface{}) int {
+func (sl *StaticList) Location(data interface{}) int {
 	location := 0
-	i := sl.Arr[sl.MaxSize-1].Cur
+	i := sl.data[sl.size-1].cur
 	for i > 0 {
 		location++
-		if sl.Arr[i].Data == data {
+		if sl.data[i].data == data {
 			return location
 		}
-		i = sl.Arr[i].Cur
+		i = sl.data[i].cur
 	}
 	return location
+}
+
+// 获取链表长度
+func (sl *StaticList) Length() int {
+	return sl.length
+}
+
+// 获取链表容量
+func (sl *StaticList) Size() int {
+	return sl.size
 }
