@@ -113,12 +113,14 @@ func testJosephus(){
 	startNode := rl.GetHead()				// 起始开始报数的元素
 	delIndex := 0 								// 要删除元素的索引
 
+	num := 0
 	for {
 
 		for i:= 1; i <= 3; i++ {	
 
-			if rl.GetNext(startNode) == rl.GetHead() {
+			if rl.GetNext(startNode) == rl.GetHead() || startNode == rl.GetHead() {
 				delIndex = 1								// 每次从头结点开始时，删除索引变为0，重新记录
+				num = 0
 				startNode = rl.GetNext(rl.GetNext(startNode))
 			} else {
 				startNode = rl.GetNext(startNode)
@@ -127,10 +129,12 @@ func testJosephus(){
 			
 		}
 
+
 		// 删除该元素
-		val, _ := rl.Node(delIndex)
-		fmt.Println("删除数据为：", delIndex, " ", val)
+		val, _ := rl.Node(delIndex - num)
+		fmt.Println("删除数据为：", delIndex - num, " ", val)
 		rl.Delete(delIndex)
+		num ++
 
 		// 如果只有一个元素
 		if rl.Length() < 3 {
