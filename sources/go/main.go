@@ -64,8 +64,19 @@ func testDoublyList() {
 	dl.Show()
 
 	dl.Append(7)
+	dl.Append(3)
+	dl.Append(9)
 	dl.Show()
 
+	dl.Insert(1,5)
+	dl.Insert(3,6)
+	dl.Show()
+
+	fmt.Println(dl.Delete(3))
+	dl.Show()
+
+	fmt.Println(dl.Delete(4))		// 删除最后一个节点
+	dl.Show()
 }
 
 func main() {
