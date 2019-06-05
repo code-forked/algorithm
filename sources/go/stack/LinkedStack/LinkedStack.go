@@ -6,7 +6,7 @@ package LinkedStack
 
 type Node struct {
 	data interface{}
-	next *Node
+	top *Node			// 栈顶指针
 }
 
 type LinkedStack struct {
