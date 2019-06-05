@@ -4,10 +4,7 @@
 
 package SequenStack
 
-import (
-	"errors"
-	"fmt"
-)
+import "fmt"
 
 type SequenStack struct {
 	data   []interface{}
@@ -26,17 +23,18 @@ func (ss *SequenStack) Push(data interface{}) {
 }
 
 // 出栈
-func (ss *SequenStack) Pop() (interface{}, error) {
+func (ss *SequenStack) Pop() interface{} {
 
 	if ss.Length() == 0 {
-		return nil, errors.New("stack is empty")
+		fmt.Println("stack is empty")
+		return nil
 	}
 
 	index := ss.Length() - 1
 	value := ss.data[index]
 	ss.data = append(ss.data[:index])
 
-	return value, nil
+	return value
 }
 
 // 获取栈长度

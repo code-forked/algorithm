@@ -5,7 +5,6 @@ import (
 	SequenList "algorithm/list/SequenList"
 	LinkedList "algorithm/list/LinkedList"
 	RingList "algorithm/list/RingList"
-	SequenStack "algorithm/stack/SequenStack"
 	DoublyList "algorithm/list/DoublyList"
  	"fmt"
 )
@@ -99,16 +98,6 @@ func testDoublyList() {
 	dl.Show()
 }
 
-func testSequenStack() {
-	ss := SequenStack.New()
-	ss.Show()
-	ss.Push(15)
-	ss.Push(17)
-	ss.Push(19)
-	v,_ := ss.Pop()
-	fmt.Println(v)
-	ss.Show()
-}
 
 func main() {
 
@@ -124,6 +113,5 @@ func main() {
 
 	// testDoublyList()					// 测试双向链表
 
-	testSequenStack()					// 测试栈
 
 }

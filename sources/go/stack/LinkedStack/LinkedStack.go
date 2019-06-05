@@ -1,12 +1,14 @@
 /**
- * 栈:链栈
+ * 栈:链式栈
  */
 
 package LinkedStack
 
+import "fmt"
+
 type Node struct {
 	data interface{}
-	top *Node			// 栈顶指针
+	next *Node
 }
 
 type LinkedStack struct {
@@ -14,7 +16,7 @@ type LinkedStack struct {
 	Length int
 }
 
-func NewLinkedStack() *LinkedStack {
+func New() *LinkedStack {
 	return &LinkedStack{
 		nil,
 		0,
@@ -33,7 +35,8 @@ func (ls *LinkedStack) Push(data interface{}) {
 // 出栈
 func (ls *LinkedStack) Pop() interface{} {
 	if ls.Length == 0 {
-		panic("当前栈是空栈")
+		fmt.Println("stack is empty")
+		return nil
 	}
 	value := ls.Top.data
 	node := ls.Top
