@@ -5,6 +5,7 @@ import (
 	SequenList "algorithm/list/SequenList"
 	LinkedList "algorithm/list/LinkedList"
 	RingList "algorithm/list/RingList"
+	NHRingList "algorithm/list/NHRingList"
 	DoublyList "algorithm/list/DoublyList"
  	"fmt"
 )
@@ -98,54 +99,6 @@ func testDoublyList() {
 	dl.Show()
 }
 
-// 约瑟夫环
-func testJosephus(){	
-
-	// 生成循环链表
-	rl := RingList.New()
-	for i := 0; i < 41; i++ {					// 多个人组成的循环链表
-		rl.Append(i + 1)						// 每个人都对应自己的原始编号
-	}
-	fmt.Print("生成的循环链表为：")
-	rl.Show()
-
-	// 每次读取3个元素，读取位置从startNode开始
-	startNode := rl.GetHead()				// 起始开始报数的元素
-	delIndex := 0 								// 要删除元素的索引
-
-	num := 0
-	for {
-
-		for i:= 1; i <= 3; i++ {	
-
-			if rl.GetNext(startNode) == rl.GetHead() || startNode == rl.GetHead() {
-				delIndex = 1								// 每次从头结点开始时，删除索引变为0，重新记录
-				num = 0
-				startNode = rl.GetNext(rl.GetNext(startNode))
-			} else {
-				startNode = rl.GetNext(startNode)
-				delIndex ++	
-			}
-			
-		}
-
-
-		// 删除该元素
-		val, _ := rl.Node(delIndex - num)
-		fmt.Println("删除数据为：", delIndex - num, " ", val)
-		rl.Delete(delIndex)
-		num ++
-
-		// 如果只有一个元素
-		if rl.Length() < 3 {
-			break;
-		}
-	}
-
-	fmt.Print("最终的循环链表为：")
-	rl.Show()
-	return
-}
 
 func main() {
 
@@ -158,8 +111,6 @@ func main() {
 	// testLinkedList()					// 测试单链表
 
 	// testRingList()					// 测试循环链表
-
-	testJosephus()						// 测试约瑟夫环
 
 	// testDoublyList()					// 测试双向链表
 

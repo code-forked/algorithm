@@ -192,11 +192,18 @@
  }
 
  // 获取头结点
- func (rl *RingList)GetHead() *node{
+ func (rl *RingList)GetHead() *node {
 	return rl.head
  }
 
- // 获取下一个节点
- func (rl *RingList)GetNext(n *node)  *node {
-	return n.next
+ // 获取尾节点
+ func (rl *RingList)GetTail() *node {
+	if rl.Length() == 0 {
+		return nil
+	}
+	currentNode := rl.GetHead()
+	for currentNode.next != rl.GetHead() {
+		currentNode = currentNode.next
+	} 
+	return currentNode
  }
