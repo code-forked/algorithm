@@ -18,7 +18,7 @@ func NewList(size int) *List {	                        // 名称大写代表公�
 }
 ```
 
-函数的调用：
+函数的调用：使用 包名.函数名 方式
 ```go
 r := list.NewLineList(3)				// := 是变量类型自动推导
 ```
