@@ -4,41 +4,7 @@
 
 [source](https://github.com/overnote/Algorithm/tree/master/sources)文件夹下拥有各类语言版本的实现案例，未来会不断涵盖Java，JavaScript，TypeScript，C，C++等各个版本。  
 
-为了贴心，笔者列出了其他语言使用者不易理解的Go语法部分。 
-
-如下是一个普通的函数`NewLineList()`：
-```go
-package list                                            // 包名，一般与文件夹名一致
-func NewList(size int) *List {	                        // 名称大写代表公有
-	return &List{
-		MaxSize: size,
-		Length: 0,
-		Data: make([]interface{}, size),
-	}
-}
-```
-
-函数的调用：使用 包名.函数名 方式
-```go
-r := list.NewLineList(3)				// := 是变量类型自动推导
-```
-
-如下是go中的实例方法`IsEmpty()`：
-```go
-func (l *List) IsEmpty() bool {		                // `l`是实例对象的形参，相当于其他语言的`this`，`self`。
-        if l.Length == 0 {
-		return true
-	}
-	return false
-}
-```
-
-go中实例方法的调用：
-```go
-r := list.NewList(3)                                    // 先使用上述第一节的函数生产一个实例对象
-b := r.IsEmpty()                                        // 调用实例方法
-```
-
+为了贴心，笔者列出了其他语言使用者不易理解的主要语言的核心语法部分，位于01章03节目，读者可依据需要选择学习。
 
 ## 算法资料
 
