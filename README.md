@@ -42,50 +42,54 @@ b := r.IsEmpty()                                        // 调用实例方法
 
 ## 算法资料
 
-推荐书籍：
-```
-数据结构
-        《学习JavaScript数据结构与算法》第3版            - 入门书籍：使用JavaScript编写
-        《数据结构》(邓俊辉)                            - 入门书籍：使用C++编写  
-        《数据结构与算法分析》                           - 经典书籍：推荐C，Java版本
+#### 数据结构
 
-算法初级
-        《算法图解》                                    - 入门书籍：适合大多数人算法零基础入门
-        《算法新解》                                    - 入门书籍：思路清晰，语言得当
-        《算法设计与分析基础》                            - 经典书籍：Java版算法思路总结，极力推荐
-        《编程珠玑》                                    - 经典书籍：算法书的有口皆碑的佳作
+- [《大话数据结构》](https://book.douban.com/subject/6424904/)：C++编写，适合完全0基础人员对数据结构进行大致了解，书籍有不少代码错误。
+- [《学习JavaScript数据结构与算法》第3版](https://book.douban.com/subject/26639401/)：JS编写，适合完全0基础人员对数据结构进行大致了解。
+- [《数据结构》(邓俊辉)](https://book.douban.com/subject/25859528/)：C++编写，数据结构书籍集大成者，简洁，详细，深入，笔者力荐。
 
-算法进阶
-        《算法》                                       - 经典书籍：Java版算法大部头
-        《算法导论》                                    - 恢弘巨制：算法领域经典代表作
-        《计算机程序设计艺术》                            - 恢弘巨制：计算机领域里程碑书籍 
+#### 算法入门
 
-算法习题
-        《编程之美》
-        《算法竞赛入门经典》刘汝佳·第2版
-        《算法竞赛进阶指南》李煜东 
-        《程序员代码面试指南》
-        《剑指offer》                               
-```
+- [《算法图解》](https://book.douban.com/subject/26979890/)：图文并茂的算法书籍
+- [《算法新解》](https://book.douban.com/subject/26931430/)：言简意赅，不错的算法入门书
+- [《算法笔记》](https://book.douban.com/subject/26827295/)：涵盖了大部分常见算法，是难得的算法入门笔记
+- [《算法设计与分析基础》第3版](https://book.douban.com/subject/26337727/)：Java书写的经典算法入门书籍
+- [《数据结构与算法分析-**语言描述》](https://book.douban.com/subject/1139426/)：算法书籍的入门经典，笔者推荐C或者Java语言版
+- [《编程珠玑》](https://book.douban.com/subject/3227098/)：为算法提供了精辟的解题思路，是算法思想学习的瑰宝
 
-学习网址：
+#### 算法进阶
+
+- [《算法》](https://book.douban.com/subject/10432347/)：经典书籍，笔者认为最好的算法书籍，Java编写
+- [《算法导论》](https://book.douban.com/subject/1885170/)：恢弘巨著，算法领域的代表作
+- [《计算机程序设计艺术》](https://book.douban.com/subject/1130500/)：恢弘巨作，算法领域的里程碑
+
+#### 算法习题
+
+- [《编程之美》](https://book.douban.com/subject/3004255/)：微软面试指南集合
+- [《算法竞赛入门经典》刘汝佳·第2版](https://book.douban.com/subject/25902102/)：算法题佳作之一
+- [《算法竞赛进阶指南》李煜东 ](https://book.douban.com/subject/30136932/)：算法题佳作之一
+- [《程序员代码面试指南》](https://book.douban.com/subject/26638586/)：面试指南之一
+- [《剑指offer》](https://book.douban.com/subject/27008702/)：面试指南之一
+
+#### 学习网址
+
 - [牛客网](https://www.nowcoder.com/)：面向基础与面试的算法题库
 - [力扣](https://leetcode.com/)：著名的算法题网站
 - [算法导论](http://open.163.com/special/opencourse/algorithms.html)：麻省理工学院公开课
 - [JULY博主](https://blog.csdn.net/v_july_v)：算法讲解私人博客
 - [oRblt专栏](https://blog.csdn.net/orbit)：算法讲解私人博客
- 
 
-## 附录：笔者自己的其他笔记
+## 附录：博主自己的其他笔记
 
-[推荐书籍](https://github.com/ruyuejun/polaris)：综合了所有技术对应的书籍与书评
+[推荐书籍](https://github.com/ruyuejun/polaris)：综合了所有技术对应的书籍与书评 https://github.com/ruyuejun/polaris  
 
-[知识笔记汇总仓库](https://github.com/overnote)：所有技术笔记所在组织  
+[知识笔记汇总仓库](https://github.com/overnote)：所有技术笔记所在组织 https://github.com/overnote   
 
-各类技术分类索引：
-- [算法](https://github.com/overnote/Algorithm)：涉及数据结构、基础算法、算法进阶等内容，有Go、JS两个版本，未来增加C，Java
-- [服务端](https://github.com/overnote/Server)：涉及服务端常用技术，如：nginx、mysql、redis等
-- [JavaScript](https://github.com/overnote/JavaScript)：涉及网页开发、JS学习、Node、vue、react等
-- [Go](https://github.com/overnote/Golang)：
-- [Java]()：整理中
-- [Python]()：整理中
+对上述仓库的分类索引：  
+- [Server](https://github.com/overnote/server)：包含常用服务端技术：Nginx、mysql、redis、mongodb、linux系统等
+- [数据结构与算法](https://github.com/overnote/algorithm)：数据结构与算法笔记，主讲Go版本，另附JS，Java版本，未来可能增加C版
+- [JavaScript](https://github.com/overnote/javascript)：包含网页、JS、前端工程化、Node、vue、react等JS相关领域技术
+- [Go](https://github.com/overnote/golang)：详尽的Go领域笔记，包括语法、并发编程、web编程、微服务等
+- [Java](https://github.com/overnote/java)：整理中，Java篇幅过大，整理困难，可能会鸽
+- [Python](https://github.com/overnote/python)：整理中
+- [计算机考研](https://github.com/overnote/postgraduate)：整理中
